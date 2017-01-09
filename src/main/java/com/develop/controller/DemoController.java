@@ -1,5 +1,8 @@
 package com.develop.controller;
 
+import com.develop.mapper.UserMapper;
+import com.develop.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +20,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/loco/")
 public class DemoController {
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "hello",method = RequestMethod.GET)
     public String hello(){
+        userService.hao();
+//        userMapper.selectByPrimaryKey(1);
         System.out.println("nihao ");
         return "hello";
     }
